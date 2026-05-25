@@ -1,0 +1,145 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1.5rem;
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 450px; /* Adjusted for Figma screenshot size */
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-xl);
+  animation: modalSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-image: radial-gradient(circle at top left, var(--primary-color) 0%, transparent 40%); /* Subtle corner gradient from Figma */
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(40px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-header {
+  padding: 1.5rem 2rem;
+  border: none; /* Removed border to match Figma */
+  display: flex;
+  justify-content: center; /* Center the title */
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: transparent;
+  z-index: 10;
+}
+
+.modal-header h2 {
+  font-size: 1.6rem; /* Increased size */
+  font-weight: 900;
+  color: var(--text-main);
+  margin-top: 1rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  width: 36px;
+  height: 36px;
+  color: var(--text-main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transition: var(--transition);
+}
+
+.close-btn:hover {
+  background: var(--error);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.form-error {
+  background: rgba(239, 68, 68, 0.05);
+  color: var(--error);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(239, 68, 68, 0.1);
+}
+
+.modal-footer {
+  padding: 1.5rem 2rem;
+  background: #f8fafc;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.btn-cancel {
+  background: white;
+  color: var(--text-muted);
+  border: 1.5px solid var(--border-color);
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background: #f1f5f9;
+  color: var(--text-main);
+}
+
+/* Star Rating Input Polish */
+.star-rating-input {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 2.25rem;
+  color: #e2e8f0;
+}
+
+.star-rating-input .star-icon {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.star-rating-input .star-icon:hover {
+  transform: scale(1.2);
+}
+
+.star-rating-input .star-icon.active {
+  color: #fbbf24;
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.3));
+}
