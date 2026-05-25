@@ -8,12 +8,12 @@ import './Home.css';
 
 const Home = ({ globalSearch }) => {
   const [companies, setCompanies] = useState([]);
-  const [loading, setLoading] = useState(true);
+ const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   
   // Search and Filter States
-  const [city, setCity] = useState('Indore'); // Default city as per Figma
+  const [city, setCity] = useState('');// Default city as per Figma
   const [sort, setSort] = useState('name');
 
   const fetchCompanies = useCallback(async () => {
@@ -37,9 +37,11 @@ const Home = ({ globalSearch }) => {
     }
   }, [sort, city, globalSearch]);
 
-  useEffect(() => {
+useEffect(() => {
+  if (city.trim() !== '' || globalSearch.trim() !== '') {
     fetchCompanies();
-  }, [fetchCompanies, globalSearch, sort]); // Added sort to dependencies for instant update on change
+  }
+}, [fetchCompanies, globalSearch, sort, city]);// Added sort to dependencies for instant update on change
 
   const handleSearch = (e) => {
     // We can implement debouncing here if needed
