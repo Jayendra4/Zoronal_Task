@@ -15,7 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const allowedOrigins = [
-  'https://zoronal-task-s57u.vercel.app',
+  'http://localhost:5173',
+  'https://zoronal-task-s57u-jayendras-projects-60719684.vercel.app',
   process.env.CLIENT_URL
 ].filter(Boolean);
 
@@ -30,7 +31,8 @@ app.use(cors({
     return callback(null, true);
   },
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE']
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 if (process.env.NODE_ENV === 'development') {
