@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const allowedOrigins = [
-  'http://localhost:5173',
+  'https://zoronal-task-s57u.vercel.app',
   process.env.CLIENT_URL
 ].filter(Boolean);
 
